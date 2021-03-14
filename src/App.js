@@ -1,23 +1,19 @@
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
+import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
+import MealDetail from './components/MealDetail/MealDetail';
+import MealFinder from './components/MealFinder/MealFinder';
 
 function App() {
+  const [likeColor, setLikeColor] = useState('');
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AccessAlarmIcon></AccessAlarmIcon>
+      <ThumbUpAltIcon onClick={() => setLikeColor(likeColor ? '' : 'primary')} color={likeColor}></ThumbUpAltIcon>
+      <MealDetail></MealDetail>
+      <MealFinder></MealFinder>
     </div>
   );
 }
